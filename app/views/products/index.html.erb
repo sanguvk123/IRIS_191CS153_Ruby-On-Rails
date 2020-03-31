@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+  <% if current_user %>
+    Logged in as <%= current_user.email %>.
+    <%= link_to "Log Out", logout_path %>
+  <% else %>
+    <%= link_to "Sign Up", signup_path %> or
+    <%= link_to "Log In", login_path %>
+  <% end %>
+</div>
+
 <h1>Products</h1>
 
 
@@ -20,10 +30,12 @@
           <div class="text">
             <%= product.contact %>
           </div>
-
-          <% if user_id_id == current_user.id %>
-          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
-          <% end %>
+          <div class="text">
+            <%= product.user.email %>
+            <% if product.user == current_user %>
+            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
+            <% end %>
+          </div>
         </div>
       </div>
   </div>
