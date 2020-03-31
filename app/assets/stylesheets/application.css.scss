@@ -1,14 +1,88 @@
 // @import "bootstrap-sprockets"
 @import "bootstrap";
-.container{
-  width: 360px;
-  .row{
-    border-radius: 10px;
+// .container{
+//   width: 360px;
+//   .row{
+//     border-radius: 10px;
+//     width: 300px;
+//     margin: 0px;
+//     border: solid;
+//     img{
+//         border-radius: 5px;
+//       }
+//       .col{
+//         .feild{
+//           margin-top: 10px;
+//           text-align: center;
+//           text-transform: capitalize;
+//           font-size: 20px;
+//           background-color: yellow;
+//           border-radius: 10px;
+//         }
+//         .uploader{
+//           margin: 0px;
+//           text-align: right;
+//         }
+//         .text{
+//           margin-top: 10px;
+//           text-align: center;
+//           text-transform: capitalize;
+//           font-size: 20px;
+//           background-color: yellow;
+//           border-radius: 10px;
+//         }
+//       }
+//   }
+// }
+
+// @media only screen and (max-width: 600px) {
+//   .columns {
+//     width: 100%;
+//   }
+// }
+//
+// .header{
+//   margin: 0px;
+// }
+
+#wrapper {
+    width: 80%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 50px;
+    border-bottom: solid;
+    border-color: #C8C8C8;
+    overflow: hidden; /* add this to contain floated children */
+}
+#first {
     width: 300px;
-    margin: 10px;
-    border: solid;
+    margin: 20px;
     img{
-        border-radius: 5px;
-      }
-  }
+      border-radius: 10px;
+    }
+    float:left; /* add this */
+}
+#second {
+    width: 300px;
+    margin-top: 20px;
+    float: left; /* add this */
+    .feild{
+      color:#608FD2;
+      text-transform: capitalize;
+      margin: 0px;
+      font-weight: 400;
+    }
+    .uploader{
+      font-size: 10px;
+    }
+    .text{
+      font-size: 15px;
+    }
+    .integer{
+      color: #BC0E04;
+      font-weight: bold;
+      border-bottom: solid;
+      border-width: 1px;
+      border-color: #C8C8C8;
+    }
 }

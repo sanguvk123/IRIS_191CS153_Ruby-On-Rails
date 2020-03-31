@@ -1,53 +1,41 @@
 <p id="notice"><%= notice %></p>
-
-<div class="container">
-  <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log Out", logout_path %>
-  <% else %>
-    <%= link_to "Sign Up", signup_path %> or
-    <%= link_to "Log In", login_path %>
-  <% end %>
-</div>
-
 <h1>Products</h1>
 
 
-<div class="parent-container d-flex">
-  <% @products.each do |product| %>
-  <div class="container">
-    <div class="row">
-        <div class="col">
-          <div class="feild">
-            <b><%= product.name %></b>
-          </div>
-          <div class="image">
-            <%= image_tag( product.image, :size => "260x180", :crop => :fill) %>
-          </div>
-          <div class="text">
-            <%= product.description %>
-          </div>
-          <div class="integer">
-            <%= product.starting_bid %>
-            <% if Date.current.midnight < product.deadline %>
-            <% if current_user %>
-            <%= link_to 'Edit', product %>
-            <% end %>
-            <% end %>
-          </div>
-          <div class="text">
-            <%= product.contact %>
-          </div>
-          <div class="text">
-            Uploaded by Mr.<%= product.user.email %>
-            <% if product.user == current_user %>
-            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+<% @products.each do |product| %>
+<div id="wrapper">
+<div id="first">
+  <div class="image">
+    <%= image_tag( product.image, :size => "260x180", :crop => :fill) %>
   </div>
-  <% end %>
+</div>
+<div id="second">
+  <div class="feild">
+    <b><%= link_to product.name, product %></b>
+  </div>
+  <div class="uploader">
+     by <%= product.user.email %>
+    <% if product.user == current_user %>
+    <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
+    <% end %>
+  </div>
+  <div class="text">
+    <%= product.description %>
+  </div>
+  <div class="integer">
+    ₹<%= product.starting_bid %>.00
+    <% if Date.current.midnight < product.deadline %>
+    <% if current_user %>
+    <%= link_to 'Edit', product %>
+    <% end %>
+    <% end %>
+  </div>
+  <div class="contact">
+    <%= product.contact %>
+  </div>
+</div>
+</div>
+<% end %>
 </div>
 
 <%= link_to 'New Product', new_product_path %>
