@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+
+<div class="parent-container d-flex">
+  <% @products.each do |product| %>
+  <div class="container">
+    <div class="row">
+        <div class="col">
+          <div class="feild">
+            <b><%= product.name %></b>
+          </div>
+          <div class="image">
+            <%= image_tag( product.image, :size => "260x180", :crop => :fill) %>
+          </div>
+          <div class="text">
+            <%= product.description %>
+          </div>
+          <div class="text">
+            <%= product.contact %>
+          </div>
+          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
+        </div>
+      </div>
+  </div>
+  <% end %>
+</div>
+
+<%= link_to 'New Product', new_product_path %>

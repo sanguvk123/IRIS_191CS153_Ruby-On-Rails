@@ -1,0 +1,14 @@
+// @import "bootstrap-sprockets"
+@import "bootstrap";
+.container{
+  width: 360px;
+  .row{
+    border-radius: 10px;
+    width: 300px;
+    margin: 10px;
+    border: solid;
+    img{
+        border-radius: 5px;
+      }
+  }
+}
