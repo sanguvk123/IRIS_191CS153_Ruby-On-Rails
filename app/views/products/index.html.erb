@@ -27,11 +27,19 @@
           <div class="text">
             <%= product.description %>
           </div>
+          <div class="integer">
+            <%= product.starting_bid %>
+            <% if Date.current.midnight < product.deadline %>
+            <% if current_user %>
+            <%= link_to 'Edit', product %>
+            <% end %>
+            <% end %>
+          </div>
           <div class="text">
             <%= product.contact %>
           </div>
           <div class="text">
-            <%= product.user.email %>
+            Uploaded by Mr.<%= product.user.email %>
             <% if product.user == current_user %>
             <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
             <% end %>
