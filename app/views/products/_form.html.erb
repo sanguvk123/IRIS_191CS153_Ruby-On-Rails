@@ -35,16 +35,15 @@
     <%= form.label :contact %>
     <%= form.text_field :contact, id: :product_contact %>
   </div>
-
-  <!-- <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, id: :product_image %>
-  </div> -->
-
   <div class="field">
     <%= form.label :image %>
     <%= form.file_field :image, id: :product_image %>
   </div>
+<!-- 
+  <div class="field">
+    <%= form.label :claim %>
+    <%= form.text_field :claim, id: :product_claim %>
+  </div> -->
 
   <div class="actions">
     <%= form.submit %>

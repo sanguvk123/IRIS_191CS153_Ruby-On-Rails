@@ -22,20 +22,31 @@
   <div class="text">
     <%= product.description %>
   </div>
+    <%= product.claim %>
   <div class="integer">
     ₹<%= product.starting_bid %>.00
     <% if Date.current.midnight < product.deadline %>
     <% if current_user %>
-    <%= link_to 'Edit', product %>
+    <%= link_to 'Bid', edit_product_path(product) %>
     <% end %>
     <% end %>
   </div>
+  <br>
   <div class="contact">
-    <%= product.contact %>
+    <b>For more details contact <%= product.contact %></b>
+  </div>
+</div>
+<div id="third">
+  <div class="buttons">
+    <% if Date.current.midnight >= product.deadline %>
+    <% if current_user and current_user.email == product.claim %>
+    <button type="button" class="btn btn-success">Success</button>
+    <% else %>
+    <button type="button" class="btn btn-warning">claimed by <%= product.claim %></button>
+    <% end %>
+    <% end %>
   </div>
 </div>
 </div>
 <% end %>
 </div>
-
-<%= link_to 'New Product', new_product_path %>

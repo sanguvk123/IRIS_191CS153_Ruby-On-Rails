@@ -15,17 +15,23 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @product.claim = current_user.email
   end
 
   # GET /products/1/edit
   def edit
+    @product.claim = current_user.email
   end
 
+  def bid
+    @product.claim = current_user.email
+  end
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    @product.claim = @product.user.email
 
     respond_to do |format|
       if @product.save
@@ -41,6 +47,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @product.claim = current_user.email
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -70,6 +77,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :starting_bid, :deadline, :contact, :image)
+      params.require(:product).permit(:name, :description, :starting_bid, :deadline, :contact, :image, :claim)
     end
 end

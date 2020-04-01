@@ -1,29 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <div id="wrapper">
+  <div id="first">
+    <div class="image">
+      <%= image_tag( @product.image, :size => "260x180", :crop => :fill) %>
+    </div>
+  </div>
+  <div id="second">
+    <div class="feild">
+      Product Name: <%= @product.name %>
+    </div>
+    <div class="uploader">
+       uploaded by <%= @product.user.email %>
+      <% if @product.user == current_user %>
+      <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?'} %>
+      <% end %>
+    </div>
+    <div class="text">
+      Product Description :<%= @product.description %>
+    </div>
+    <div class="integer">
+      current rate ₹<%= @product.starting_bid %>.00
+      <% if Date.current.midnight < @product.deadline %>
+      <% if current_user %>
+      <%= link_to 'Bid', edit_product_path(@product) %>
+      <% end %>
+      <% end %>
+    </div>
+    <br>
+    <div class="contact">
+      <b>For more details contact <%= @product.contact %></b>
+    </div>
+  </div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
 
-<p>
-  <strong>Starting bid:</strong>
-  <%= @product.starting_bid %>
-</p>
-
-<p>
-  <strong>Deadline:</strong>
-  <%= @product.deadline %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @product.contact %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%#
+<%= link_to 'Edit', edit_product_path(@product) %> 
