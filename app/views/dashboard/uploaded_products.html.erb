@@ -1,45 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<header>
-  <div class="jumbotron">
-    <div class="hello">
-      <% if current_user %>
-      Hola <%= current_user.email %> here's your own Auction App.
-      <% else %>
-      Hola Nitk here's your own Auction App
-      <% end %>
-    </div>
-    <div class="introduction">
-      <div class="heading">
-       Wanna take part in Auction?<br>
-       Wanna sell your items on Auction?<br>
-       Wanna buy products by competing with your mates in bidding?<br><br>
-
-       No worries all you need to do is just login and ENJOY...
-      </div>
-      <% if not current_user %>
-      <div class="content">
-        <blink><b>Pro Tip!</b> 😅 You need to Login to take part in Auction.</blink>
-      <div class="links">
-        <div id="wrappero">
-          <div id="firsto">
-            <%= link_to "Sign Up ", signup_path %>
-          </div>
-          <div id="secondo">
-            <%= link_to "Log In", login_path %>
-          </div>
-        </div>
-      </div>
-      </div>
-      <% end %>
-
-    </div>
-  </div>
-</header>
-
 
 <% @products.each do |product| %>
-<% if Date.current.midnight < product.deadline %>
+<% if current_user and current_user.email == product.user.email%>
+<br><br><br><br>
 <div id="wrapper">
 <div id="first">
   <div class="image">
@@ -85,15 +47,19 @@
     <% end %>
   </div>
 </div>
-<div id="fourth">
+<!-- <div id="fourth">
   <% if Date.current.midnight < product.deadline %>
   <div class="deadline">
     <blink>Deadline <%= product.deadline %></blink>
   </div>
+
   <% end %>
 
-</div>
+</div> -->
 </div>
 <% end %>
 <% end %>
+
+<div class="show_products">
+  <%= link_to 'Show all Products', root_path %>
 </div>

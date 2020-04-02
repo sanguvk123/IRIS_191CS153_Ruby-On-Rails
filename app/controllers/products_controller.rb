@@ -13,9 +13,9 @@ class ProductsController < ApplicationController
   end
 
   def user_products
-    # @product = Product.find(params[:id])
+    @project = Project.user_projects
+    render :template => :index
   end
-
   # GET /products/new
   def new
     @product = Product.new

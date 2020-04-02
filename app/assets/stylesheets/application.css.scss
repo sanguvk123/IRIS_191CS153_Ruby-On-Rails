@@ -45,6 +45,54 @@
 //   margin: 0px;
 // }
 
+.navbar{
+  position: fixed;
+  width: 100%
+}
+
+.jumbotron{
+  .hello{
+    font-size: 30px;
+    text-align: center;
+  }
+  .introduction{
+    .heading{
+      font-size: 20px;
+
+    }
+    .content{
+      align-items: center;
+      text-align: center;
+      b{
+        color: #BC0E04;
+      }
+    }
+    #wrappero{
+      overflow:hidden;
+      text-align: center;
+      align-items: center;
+      display: inline-block;
+      #firsto{
+        float:left;
+        padding: 7px;
+        background-color: #B2D8EA;
+        border-radius: 5px;
+        margin: 7px;
+        display: inline-block;
+      }
+      #secondo{
+        float:left;
+        padding: 7px;
+        background-color: #B2D8EA;
+        margin: 7px;
+        border-radius: 5px;
+        display: inline-block;
+      }
+    }
+
+  }
+}
+
 .notice, #notice {
 background: #ffb;
 border-radius: 0.5em;
@@ -98,57 +146,63 @@ text-align: center;
     }
     .contact{
       font-family: arial;
+      margin-top: 7px;
+      margin-bottom: 7px;
     }
 }
 #fourth{
-  b{
-    padding: 5px;
-    margin: 5px;
-  }
-
   .deadline{
     margin: 8px;
+      blink {
+        font-size: 15px;
+        font-weight: bold;
+        background-color: #FB8181;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 5px;
+        display: inline-block;
+      -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
+      animation: 2s linear infinite condemned_blink_effect;
+    }
+
+  /* for Safari 4.0 - 8.0 */
+  @-webkit-keyframes condemned_blink_effect {
+    0% {
+      visibility: hidden;
+    }
+    50% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
   }
 
-    blink {
-      font-size: 15px;
-      font-weight: bold;
-      background-color: #FB8181;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      border-radius: 5px;
-    -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
-    animation: 2s linear infinite condemned_blink_effect;
+  @keyframes condemned_blink_effect {
+    0% {
+      visibility: hidden;
+    }
+    50% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
   }
-
-/* for Safari 4.0 - 8.0 */
-@-webkit-keyframes condemned_blink_effect {
-  0% {
-    visibility: hidden;
-  }
-  50% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
   }
 }
 
-@keyframes condemned_blink_effect {
-  0% {
-    visibility: hidden;
-  }
-  50% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
-}
-}
 
+div.sticky {
+position: -webkit-sticky;
+position: sticky;
+top: 0;
+background-color: yellow;
+padding: 50px;
+font-size: 20px;
+}
 
 #navbar {
   overflow: hidden;
@@ -171,11 +225,6 @@ text-align: center;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {

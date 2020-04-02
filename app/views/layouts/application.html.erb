@@ -30,12 +30,17 @@
         <%= link_to "Log In", login_path %>
       </li>
       <% end %>
+      <% if current_user %>
       <li class="nav-item">
         <%= link_to 'New Product', new_product_path %>
       </li>
-      <% if current_user %>
+
       <li class="nav-item">
-        <%= link_to 'My Products', user_products_path(@product) %>
+        <%= link_to 'Uploaded Products', uploaded_products_path %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to 'My Products', my_products_path %>
       </li>
       <% end %>
     </ul>
