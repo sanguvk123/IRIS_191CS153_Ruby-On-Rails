@@ -96,7 +96,7 @@
 .notice, #notice {
 background: #ffb;
 border-radius: 0.5em;
-border: solid 0.177em #882;
+border: solid 0.05em #882;
 color: #882;
 font-weight: bold;
 margin-bottom: 1em;
@@ -238,4 +238,54 @@ font-size: 20px;
   text-align: center;
   margin-bottom: 50px;
   padding-bottom: 50px;
+}
+
+
+.container{
+  #grid{
+    overflow:hidden;
+    align-items: center;
+    display: inline-block;
+    width: 100%;
+    margin-top: 50px;
+
+    #gridcell2{
+      float:right;
+      padding: 7px;
+      background-color: #B2D8EA;
+      margin: 7px;
+      border-radius: 5px;
+      display: inline-block;
+      width:300px;
+      .feild{
+        font-weight: bold;
+        margin-bottom: 15px;
+        .description{
+          border-radius: 5px;
+        }
+        .date{
+          width: 100%;
+        }
+      }
+      .input{
+        width: 100%;
+      }
+
+      .actions{
+        .button{
+          width:100%;
+        }
+
+      }
+    }
+    #gridcell1{
+      float:left;
+      padding: 7px;
+      background-color: #B2D8EA;
+      border-radius: 5px;
+      margin: 7px;
+      display: inline-block;
+      width:300px;
+    }
+  }
 }
