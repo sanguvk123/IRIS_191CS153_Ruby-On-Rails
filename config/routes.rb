@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'users/create'
   resources :products
   root "products#index"
+
+  get 'products/user_products', as: 'user_products'
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   get 'login', to: 'sessions#new'

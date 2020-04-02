@@ -12,6 +12,10 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def user_products
+    # @product = Product.find(params[:id])
+  end
+
   # GET /products/new
   def new
     @product = Product.new

@@ -3,6 +3,7 @@
 
 
 <% @products.each do |product| %>
+<% if current_user and current_user.email == product.claim %>
 <div id="wrapper">
 <div id="first">
   <div class="image">
@@ -40,13 +41,14 @@
   <div class="buttons">
     <% if Date.current.midnight >= product.deadline %>
     <% if current_user and current_user.email == product.claim %>
-    <button type="button" class="btn btn-success">Claim</button>
+    <button type="button" class="btn btn-success">Success</button>
     <% else %>
-    <button type="button" class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
+    <button type="button" class="btn btn-warning">claimed by <%= product.claim %></button>
     <% end %>
     <% end %>
   </div>
 </div>
 </div>
+<% end %>
 <% end %>
 </div>
