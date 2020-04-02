@@ -42,10 +42,19 @@
     <% if current_user and current_user.email == product.claim %>
     <button type="button" class="btn btn-success">Claim</button>
     <% else %>
-    <button type="button" class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
+    <button type="button" disabled class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
     <% end %>
     <% end %>
   </div>
+</div>
+<div id="fourth">
+  <% if Date.current.midnight < product.deadline %>
+  <div class="deadline">
+    <b>Deadline</b>
+    <blink><%= product.deadline %></blink>
+  </div>
+  <% end %>
+
 </div>
 </div>
 <% end %>
