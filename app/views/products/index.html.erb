@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+    <script type="text/javascript">
+
+      function myproduct() {
+        product.myproduct = true;
+      }
+
+    </script>
 <header>
   <div class="jumbotron">
     <div class="hello">
@@ -50,6 +57,7 @@
   <div class="feild">
     <b><%= link_to product.name, product %></b>
   </div>
+  claim = <%= product.myproduct %>
   <div class="uploader">
      by <%= product.user.email %>
     <% if product.user == current_user %>
@@ -66,7 +74,17 @@
     ₹<%= product.starting_bid %>.00
     <% if Date.current.midnight < product.deadline %>
     <% if current_user %>
-    <%= link_to 'Bid', edit_product_path(product) %>
+    <%= form_with(model: product, local: true) do |form| %>
+    <div class="dropdown">
+      <span>Bid</span>
+        <div class="dropdown-content">
+          <p>
+            <%= form.number_field :starting_bid, id: :product_starting_bid, style: 'width: 60%;' %>
+            <%= form.submit 'Bid', class: 'button', style: 'width: 35%'%>
+          </p>
+        </div>
+    </div>
+    <% end %>
     <% end %>
     <% end %>
   </div>
@@ -78,7 +96,10 @@
   <div class="buttons">
     <% if Date.current.midnight >= product.deadline %>
     <% if current_user and current_user.email == product.claim %>
-    <button type="button" class="btn btn-success">Claim</button>
+    <%= form_with(model: product, local: true) do |form| %>
+    <%= form.label :claim? %>
+    <%= form.check_box :myproduct, id: :product_myproduct %>
+    <% end %>
     <% else %>
     <button type="button" disabled class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
     <% end %>
@@ -95,5 +116,3 @@
 </div>
 </div>
 <% end %>
-<%# <% end %>
-</div>

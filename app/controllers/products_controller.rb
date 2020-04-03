@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
   def bid
     @product.claim = current_user.email
   end
+
   # POST /products
   # POST /products.json
   def create
@@ -54,7 +55,7 @@ class ProductsController < ApplicationController
     @product.claim = current_user.email
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }

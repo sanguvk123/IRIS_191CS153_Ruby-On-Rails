@@ -1,8 +1,30 @@
-<h1>Login</h1>
-   <%= form_tag '/login' do %>
-   <%= label_tag :username%>
-   <%= text_field_tag :username %>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%>
-   <%= submit_tag "Login"%>
-<%end%>
+<div class="newuser">
+  <div class="heading">
+    Auxi<div class="on">on</div>
+  </div>
+  <div class="introduction">
+    Login
+  </div>
+  <%= form_tag '/login' do %>
+  <div class="login-form">
+    <div class="field">
+       <%= label_tag :username%>
+    </div>
+    <div class="style">
+       <%= text_field_tag :username %>
+    </div>
+    <br>
+    <div class="field">
+       <%= label_tag :password%>
+    </div>
+    <div class="">
+       <%= password_field_tag :password%>
+    </div>
+    <br>
+    <div class="actions">
+       <%= submit_tag "Login", style: 'width: 100%; border-radius:2px; border-shadow:none; border:solid 1px;'%>
+    <%end%>
+    </div>
+  </div>
+
+</div>
