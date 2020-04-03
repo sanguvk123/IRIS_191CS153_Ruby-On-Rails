@@ -1,7 +1,14 @@
-<div class="container">
+<div class="form-container">
   <div id="grid">
     <div id="gridcell1">
-        Join the Iris App community and enjoy Auction
+        Join the Auxion Community
+        <ul>
+          <li>Wanna sell items -- Auxion is here!</li>
+          <li>Upload Products</li>
+          <li>Set a Deadline</li>
+          <li>Wait for your mates to bid.</li>
+          <li>Sell</li>
+        </ul>
     </div>
     <div id="gridcell2">
       <%= form_with(model: product, local: true) do |form| %>
@@ -46,12 +53,12 @@
           <%= form.file_field :image, id: :product_image, style: 'width: 100%;' %>
         </div>
         <div class="actions">
-          <%= form.submit 'Sign Up', class: 'button' %>
+          <%= form.submit 'Add Product', class: 'button' %>
         </div>
       <% end %>
-      <!-- <div class="terms">
-        By clicking “Sign up”, you agree to our terms of service, privacy policy and cookie policy.
-      </div> -->
+      <div class="terms">
+        By clicking “Add Product”, you agree to our terms of service, privacy policy and cookie policy.
+      </div>
     </div>
   </div>
 </div>

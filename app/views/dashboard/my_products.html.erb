@@ -1,6 +1,8 @@
+<div class="myproducts">
 
 <% @products.each do |product| %>
-<% if current_user and current_user.email == product.claim%>
+<% if current_user and Date.current.midnight > product.deadline %>
+<% if current_user.email == product.claim %>
 <br><br><br><br>
 <div id="wrapper">
 <div id="first">
@@ -59,7 +61,6 @@
 </div>
 <% end %>
 <% end %>
+<% end %>
 
-<div class="show_products">
-  <%= link_to 'Show all Products', root_path %>
 </div>

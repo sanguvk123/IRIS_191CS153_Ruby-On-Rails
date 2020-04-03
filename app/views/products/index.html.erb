@@ -39,7 +39,7 @@
 
 
 <% @products.each do |product| %>
-<% if Date.current.midnight < product.deadline %>
+<%# <% if Date.current.midnight < product.deadline %>
 <div id="wrapper">
 <div id="first">
   <div class="image">
@@ -95,5 +95,5 @@
 </div>
 </div>
 <% end %>
-<% end %>
+<%# <% end %>
 </div>
