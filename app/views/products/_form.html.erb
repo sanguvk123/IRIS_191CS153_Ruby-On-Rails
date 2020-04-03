@@ -26,34 +26,34 @@
 
         <div class="feild">
           <%= form.label :name %>
-          <%= form.text_field :name, id: :product_name, style: 'width: 100%;' %>
+          <%= form.text_field :name, id: :product_name, style: 'width: 100%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
         </div>
 
         <div class="feild">
           <%= form.label :description %>
-          <%= form.text_area :description, id: :product_description, style: 'width: 100%;', class: 'description' %>
+          <%= form.text_area :description, id: :product_description, style: 'width: 100%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
         </div>
 
         <div class="feild">
           <%= form.label :starting_bid %>
-          <%= form.number_field :starting_bid, id: :product_starting_bid, style: 'width: 100%;' %>
+          <%= form.number_field :starting_bid, id: :product_starting_bid, style: 'width: 100%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
         </div>
 
         <div class="feild">
           <%= form.label :deadline %><br>
-          <%= form.date_select :deadline, id: :product_deadline, style: 'width: 100%;', class: 'date' %>
+          <%= form.date_select :deadline, id: :product_deadline, style: 'width: 100%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
         </div>
 
         <div class="feild">
           <%= form.label :contact %>
-          <%= form.text_field :contact, id: :product_contact, style: 'width: 100%;' %>
+          <%= form.text_field :contact, id: :product_contact, style: 'width: 100%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
         </div>
         <div class="feild">
           <%= form.label :image %>
-          <%= form.file_field :image, id: :product_image, style: 'width: 100%;' %>
+          <%= form.file_field :image, id: :product_image, style: 'width: 100%; border-radius:2px;' %>
         </div>
         <div class="actions">
-          <%= form.submit 'Add Product', class: 'button' %>
+          <%= form.submit 'Add Product', class: 'button',style: 'width: 100%;' %>
         </div>
       <% end %>
       <div class="terms">

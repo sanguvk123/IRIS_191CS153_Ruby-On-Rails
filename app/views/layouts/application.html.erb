@@ -7,11 +7,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
   <header>
     <nav class="nav">
 	     <ul>
-		       <li class="current"><a class="navbar-brand" href="/products">Auxion</a></li>
+		       <li class="current"><a class="navbar-brand" href="/products"><div class="heading">
+             Auxi<div class="on">on</div>
+           </div></a></li>
            <% if current_user %>
            <li class="logout"><%= link_to "Log Out", logout_path %></li>
            <% else %>
@@ -29,4 +32,5 @@
   <body>
     <%= yield %>
   </body>
+
 </html>
