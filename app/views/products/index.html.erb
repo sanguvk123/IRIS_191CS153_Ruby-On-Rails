@@ -46,7 +46,9 @@
 
 
 <% @products.each do |product| %>
-<% if Date.current.midnight < product.deadline and  if product.myproduct == false %>
+<% if current_user %>
+<% if Date.current.midnight < product.deadline and product.myproduct == false or product.claim == current_user.email %>
+<% if product.myproduct == false %>
 <div id="wrapper">
 <div id="first">
   <div class="image">
@@ -118,6 +120,7 @@
 
 </div>
 </div>
+<% end %>
 <% end %>
 <% end %>
 <% end %>
