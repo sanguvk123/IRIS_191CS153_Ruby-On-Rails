@@ -2,7 +2,7 @@
 
   <br><br><br><br>
 <% @products.each do |product| %>
-<% if current_user and Date.current.midnight > product.deadline and current_user.email == product.claim and product.myproduct == true %>
+<% if current_user.email == product.claim and product.myproduct == true %>
 
 <div id="wrapper">
 <div id="first">
