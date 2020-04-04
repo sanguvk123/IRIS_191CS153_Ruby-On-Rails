@@ -46,7 +46,7 @@
 
 
 <% @products.each do |product| %>
-<%# <% if Date.current.midnight < product.deadline %>
+<% if Date.current.midnight < product.deadline and  if product.myproduct == false %>
 <div id="wrapper">
 <div id="first">
   <div class="image">
@@ -98,7 +98,10 @@
     <% if current_user and current_user.email == product.claim %>
     <%= form_with(model: product, local: true) do |form| %>
     <%= form.label :claim? %>
+    <% if product.myproduct == false %>
     <%= form.check_box :myproduct, id: :product_myproduct %>
+      <%= form.submit 'Add Product', class: 'button' %>
+    <% end %>
     <% end %>
     <% else %>
     <button type="button" disabled class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
@@ -115,4 +118,6 @@
 
 </div>
 </div>
+<% end %>
+<% end %>
 <% end %>

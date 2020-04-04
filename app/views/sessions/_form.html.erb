@@ -1,0 +1,21 @@
+<div class="signup-form">
+  <%= form_with(model: product, local: true) do |form| %>
+<%= form_with(session: new, local: true) do |form| %>
+<div class="field">
+  <%= form.label :email %>
+</div>
+<div class="">
+  <%= form.text_field :email, id: :user_email, style: 'width: 100%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
+</div>
+<br>
+<div class="field">
+  <%= form.label :password%>
+</div>
+<div class="">
+  <%= form.password_field :password, id: :user_password, style: 'width: 100%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
+</div>
+<div class="actions">
+  <%= form.submit "Login", style: 'width: 100%;' %>
+</div>
+<% end %>
+</div>
