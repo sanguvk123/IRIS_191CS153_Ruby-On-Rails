@@ -1,7 +1,6 @@
-
-<% @products.each do |product| %>
-<% if current_user and current_user.email == product.user.email%>
 <br><br><br><br>
+<% @products.each do |product| %>
+<% if current_user and current_user.email == product.user.email and product.myproduct == false%>
 <div id="wrapper">
 <div id="first">
   <div class="image">
@@ -21,9 +20,7 @@
   <div class="text">
     <%= product.description %>
   </div>
-  <% if product.claim %>
-    Current maximum bidder is Mr. <%= product.claim %>
-  <% end %>
+
   <div class="integer">
     ₹<%= product.starting_bid %>.00
     <% if Date.current.midnight < product.deadline %>

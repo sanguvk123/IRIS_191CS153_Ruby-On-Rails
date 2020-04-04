@@ -1,9 +1,9 @@
 <div class="myproducts">
 
+  <br><br><br><br>
 <% @products.each do |product| %>
-<% if current_user and Date.current.midnight > product.deadline %>
-<% if current_user.email == product.claim %>
-<br><br><br><br>
+<% if current_user and Date.current.midnight > product.deadline and current_user.email == product.claim and product.myproduct == true %>
+
 <div id="wrapper">
 <div id="first">
   <div class="image">
@@ -38,7 +38,7 @@
     <b>For more details contact <%= product.contact %></b>
   </div>
 </div>
-<div id="third">
+<!-- <div id="third">
   <div class="buttons">
     <% if Date.current.midnight >= product.deadline %>
     <% if current_user and current_user.email == product.claim %>
@@ -48,7 +48,7 @@
     <% end %>
     <% end %>
   </div>
-</div>
+</div> -->
 <!-- <div id="fourth">
   <% if Date.current.midnight < product.deadline %>
   <div class="deadline">
@@ -59,7 +59,6 @@
 
 </div> -->
 </div>
-<% end %>
 <% end %>
 <% end %>
 
