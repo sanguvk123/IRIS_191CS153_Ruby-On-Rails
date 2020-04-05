@@ -13,11 +13,19 @@
       <% if current_user %>
       Hola <%= current_user.email %> here's your own Auction App.
       <% else %>
-      Hola Nitk here's your own Auction App
+      <div class="nitk">
+        Hello! NITK
+      </div>
+      <div class="welcome">
+        Welcome to your own Auction App.
+      </div>
+      <div class="heading">
+        Auxi<div class="on">on</div>
+      </div>
       <% end %>
     </div>
     <div class="introduction">
-      <div class="heading">
+      <div class="guidelines">
        Wanna take part in Auction?<br>
        Wanna sell your items on Auction?<br>
        Wanna buy products by competing with your mates in bidding?<br><br>
@@ -37,7 +45,7 @@
           </div>
         </div>
       </div>
-      </div>
+      </div><br><br><br><br><br>
       <% end %>
 
     </div>
@@ -59,7 +67,7 @@
   <div class="feild">
     <b><%= link_to product.name, product %></b>
   </div>
-  claim = <%= product.myproduct %>
+
   <div class="uploader">
      by <%= product.user.email %>
     <% if product.user == current_user %>

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url, notice: "Logged in!"
     else
-      flash.now[:alert] = "username or password is invalid"
+      # notice: "username or password is invalid"
       render "new"
     end
   end
@@ -18,4 +18,8 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out!"
   end
+
+
+
+  
 end
