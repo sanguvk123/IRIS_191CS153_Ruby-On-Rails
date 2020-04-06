@@ -46,8 +46,12 @@
   background-color: #216895;
   color: black;
   .navdropdown {
+    display: inline-block;
     position: relative;
     display: inline-block;
+    span{
+      color:black;
+    }
   }
 
   .navdropdown-content {
@@ -146,7 +150,7 @@
 	.nav {
 		position: relative;
 		min-height: 40px;
-    background-color: #216895;
+    background-color: blue;
 	}
 	.nav ul {
 		width: 100%;
@@ -285,16 +289,18 @@
     overflow: hidden; /* add this to contain floated children */
 }
 #first {
-    width: 300px;
+    width: 400px;
     margin: 20px;
+    margin-right: 0;
     img{
       border-radius: 10px;
     }
     float:left; /* add this */
 }
 #second {
-    width: 300px;
+    width: 370px;
     margin-top: 20px;
+    margin-right: 100px;
     float: left; /* add this */
     .feild{
       color:#608FD2;
@@ -306,7 +312,7 @@
       font-size: 10px;
     }
     .text{
-      font-size: 15px;
+      font-size: 12px;
     }
     .integer{
       color: #BC0E04;
@@ -321,6 +327,13 @@
       margin-bottom: 7px;
     }
 }
+#third{
+  .buttons{
+    .checkbox{
+
+    }
+  }
+}
 #fourth{
   .deadline{
       blink {
@@ -332,7 +345,11 @@
         padding-top: 10px;
         padding-bottom: 10px;
         border-radius: 5px;
-        display: inline-block;
+        // display: inline-block;
+        display: flex;
+        width: 200px;
+        margin:auto;
+        align-items: center;
       -webkit-animation: 2s linear infinite condemned_blink_effect; /* for Safari 4.0 - 8.0 */
       animation: 2s linear infinite condemned_blink_effect;
     }
