@@ -3,4 +3,6 @@ class Product < ApplicationRecord
   validates :name, presence: true
   belongs_to :user
   validates :claim, presence: true
+  validates :starting_bid, presence: true
+
 end

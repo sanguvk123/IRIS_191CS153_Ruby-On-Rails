@@ -21,11 +21,6 @@
       </div>
       <div class="integer">
         current rate ₹<%= @product.starting_bid %>.00
-        <% if Date.current.midnight < @product.deadline %>
-        <% if current_user %>
-        <%= link_to 'Bid', edit_product_path(@product) %>
-        <% end %>
-        <% end %>
       </div>
       <br>
       <div class="contact">
