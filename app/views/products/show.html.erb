@@ -1,43 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="show-product">
+  <p id="notice"><%= notice %></p>
+    <div id="wrapper">
+    <div id="first">
+      <div class="image">
+        <%= image_tag( @product.image, :size => "260x180", :crop => :fill) %>
+      </div>
+    </div>
+    <div id="second">
+      <div class="feild">
+        Product Name: <%= @product.name %>
+      </div>
+      <div class="uploader">
+         uploaded by <%= @product.user.email %>
+        <% if @product.user == current_user %>
+        <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?'} %>
+        <% end %>
+      </div>
+      <div class="text">
+        Product Description :<%= @product.description %>
+      </div>
+      <div class="integer">
+        current rate ₹<%= @product.starting_bid %>.00
+        <% if Date.current.midnight < @product.deadline %>
+        <% if current_user %>
+        <%= link_to 'Bid', edit_product_path(@product) %>
+        <% end %>
+        <% end %>
+      </div>
+      <br>
+      <div class="contact">
+        <b>For more details contact <%= @product.contact %></b>
+      </div>
+    </div>
+    </div>
+    <div class="show_products">
+      <%= link_to 'Show all Products', root_path %>
+    </div>
 
-  <div id="wrapper">
-  <div id="first">
-    <div class="image">
-      <%= image_tag( @product.image, :size => "260x180", :crop => :fill) %>
-    </div>
-  </div>
-  <div id="second">
-    <div class="feild">
-      Product Name: <%= @product.name %>
-    </div>
-    <div class="uploader">
-       uploaded by <%= @product.user.email %>
-      <% if @product.user == current_user %>
-      <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?'} %>
-      <% end %>
-    </div>
-    <div class="text">
-      Product Description :<%= @product.description %>
-    </div>
-    <div class="integer">
-      current rate ₹<%= @product.starting_bid %>.00
-      <% if Date.current.midnight < @product.deadline %>
-      <% if current_user %>
-      <%= link_to 'Bid', edit_product_path(@product) %>
-      <% end %>
-      <% end %>
-    </div>
-    <br>
-    <div class="contact">
-      <b>For more details contact <%= @product.contact %></b>
-    </div>
-  </div>
-  </div>
-  <div class="show_products">
-    <%= link_to 'Show all Products', root_path %>
-  </div>
-
-
-
-<%#
-<%= link_to 'Edit', edit_product_path(@product) %>
+</div>
