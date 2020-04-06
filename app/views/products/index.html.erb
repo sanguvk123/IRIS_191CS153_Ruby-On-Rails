@@ -51,8 +51,6 @@
     </div>
   </div>
 </header>
-
-
 <% @products.each do |product| %>
 <% if current_user %>
 <% if Date.current.midnight < product.deadline and product.myproduct == false or product.claim == current_user.email %>
@@ -89,8 +87,8 @@
       <span>Bid</span>
         <div class="dropdown-content">
           <p>
-            <%= form.number_field :starting_bid, id: :product_starting_bid, style: 'width: 60%;' %>
-            <%= form.submit 'Bid', class: 'button', style: 'width: 35%'%>
+            <%= form.number_field :starting_bid, id: :product_starting_bid, style: 'width: 60%; border-radius:2px; border-shadow:none; border:solid 1px;' %>
+            <%= form.submit 'Bid', class: 'button', style:  'color:white; width: 35%; border-radius:2px; background-color:#1190DA; padding:5px; border-shadow:none; border:solid 1px blue;'%>
           </p>
         </div>
     </div>
@@ -106,11 +104,13 @@
   <div class="buttons">
     <% if Date.current.midnight >= product.deadline %>
     <% if current_user and current_user.email == product.claim %>
+    <div class="checkbox">
     <%= form_with(model: product, local: true) do |form| %>
-    <%= form.label :claim? %>
+    <%# <%= form.label :claim? %>
     <% if product.myproduct == false %>
-    <%= form.check_box :myproduct, id: :product_myproduct %>
-      <%= form.submit 'claim', class: 'button' %>
+      <%= form.check_box :myproduct, id: :product_myproduct %>
+      <%= form.submit 'claim', class: 'button' , style:  'color:white; border-radius:8px; background-color:#1190DA; padding:5px; border-shadow:none; border:solid 1px lightgreen;'%>
+    </div>
     <% end %>
     <% end %>
     <% else %>

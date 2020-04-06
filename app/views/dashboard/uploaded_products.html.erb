@@ -33,17 +33,17 @@
     <b>For more details contact <%= product.contact %></b>
   </div>
 </div>
-<!-- <div id="third">
+<div id="third">
   <div class="buttons">
     <% if Date.current.midnight >= product.deadline %>
-    <% if current_user and current_user.email == product.claim %>
-    <button type="button" class="btn btn-success">Claim</button>
-    <% else %>
+    <%# <% if current_user and current_user.email == product.claim %>
+    <% if product.myproduct == true %>
     <button type="button" disabled class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
     <% end %>
+    <%# <% end %>
     <% end %>
   </div>
-</div> -->
+</div>
 <!-- <div id="fourth">
   <% if Date.current.midnight < product.deadline %>
   <div class="deadline">
