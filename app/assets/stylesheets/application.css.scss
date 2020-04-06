@@ -125,6 +125,10 @@
 }
 
 
+
+.show-product{
+  margin-top: 50px;
+}
 //______________________________________________________________________________
 //______________________________________________________________________________
 
@@ -575,3 +579,40 @@
 //
 // .error, .alert, #notice, .success, .info ,.flash{padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
 // .success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+
+
+
+//#myproducts
+
+#myproducts, #uploadedproducts{
+  margin-left: 4%;
+  margin-top: 50px;
+  display: inline-block;
+
+  .heading{
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+  #wrapper{
+    border: solid 1px;
+    width: 350px;
+    padding-bottom: 5px;
+    display: inline-block;
+    margin: auto;
+  }
+  #second{
+    margin-top: 0px;
+    margin-left: 20px;
+    border-left: solid 5px yellow;
+    padding-left: 5px;
+    width :300px;
+    .text{
+      height: 100px;
+    }
+  }
+  #third{
+    margin-left: 10%;
+  }
+}

@@ -1,13 +1,15 @@
-<div class="myproducts">
+<div id="myproducts">
+<div class="heading">
+  My Products
 
-  <br><br><br><br>
+</div>
 <% @products.each do |product| %>
 <% if current_user.email == product.claim and product.myproduct == true %>
 
 <div id="wrapper">
 <div id="first">
   <div class="image">
-    <%= image_tag( product.image, :size => "260x180", :crop => :fill) %>
+    <%= image_tag( product.image, :size => "300x220", :crop => :fill) %>
   </div>
 </div>
 <div id="second">

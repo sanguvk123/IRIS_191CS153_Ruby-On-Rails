@@ -1,63 +1,72 @@
-<br><br><br><br>
-<% @products.each do |product| %>
-<% if current_user and current_user.email == product.user.email%>
-<div id="wrapper">
-<div id="first">
-  <div class="image">
-    <%= image_tag( product.image, :size => "260x180", :crop => :fill) %>
-  </div>
-</div>
-<div id="second">
-  <div class="feild">
-    <b><%= link_to product.name, product %></b>
-  </div>
-  <div class="uploader">
-     by <%= product.user.email %>
-    <% if product.user == current_user %>
-    <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
-    <% end %>
-  </div>
-  <div class="text">
-    <%= product.description %>
-  </div>
+<div id="uploadedproducts">
 
-  <div class="integer">
-    ₹<%= product.starting_bid %>.00
+  <div class="heading">
+    Uploaded Products
+  </div>
+  <% @products.each do |product| %>
+  <% if current_user and current_user.email == product.user.email%>
+  <div id="wrapper">
+  <div id="first">
+    <div class="image">
+      <%= image_tag( product.image, :size => "260x180", :crop => :fill) %>
+    </div>
+  </div>
+  <div id="second">
+    <div class="feild">
+      <b><%= link_to product.name, product %></b>
+    </div>
+    <div class="uploader">
+       by <%= product.user.email %>
+      <% if product.user == current_user %>
+      <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?'} %>
+      <% end %>
+    </div>
+    <div class="text">
+      <%= product.description %>
+    </div>
+
+    <div class="integer">
+      ₹<%= product.starting_bid %>.00
+      <% if Date.current.midnight < product.deadline %>
+      <% if current_user %>
+      <%= link_to 'Bid', edit_product_path(product) %>
+      <% end %>
+      <% end %>
+    </div>
+    <div class="contact">
+      <b>For more details contact <%= product.contact %></b>
+    </div>
+  </div>
+  <div id="third">
+    <div class="buttons">
+      <% if Date.current.midnight >= product.deadline %>
+      <%# <% if current_user and current_user.email == product.claim %>
+      <% if product.myproduct == true %>
+      <button type="button" class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
+      <% end %>
+      <% if product.myproduct == false %>
+      <button type="button" class="btn btn-warning">Not Claimed</button>
+      <% end %>
+      <%# <% end %>
+      <% end %>
+    </div>
+  </div>
+  <!-- <div id="fourth">
     <% if Date.current.midnight < product.deadline %>
-    <% if current_user %>
-    <%= link_to 'Bid', edit_product_path(product) %>
+    <div class="deadline">
+      <blink>Deadline <%= product.deadline %></blink>
+    </div>
+
     <% end %>
-    <% end %>
-  </div>
-  <div class="contact">
-    <b>For more details contact <%= product.contact %></b>
-  </div>
-</div>
-<div id="third">
-  <div class="buttons">
-    <% if Date.current.midnight >= product.deadline %>
-    <%# <% if current_user and current_user.email == product.claim %>
-    <% if product.myproduct == true %>
-    <button type="button" disabled class="btn btn-warning">claimed by Mr.<%= product.claim %></button>
-    <% end %>
-    <%# <% end %>
-    <% end %>
-  </div>
-</div>
-<!-- <div id="fourth">
-  <% if Date.current.midnight < product.deadline %>
-  <div class="deadline">
-    <blink>Deadline <%= product.deadline %></blink>
+
+  </div> -->
   </div>
 
   <% end %>
+  <% end %>
 
-</div> -->
-</div>
+  <div class="show_products">
+    <%= link_to 'Show all Products', root_path %>
+  </div>
 
-<% end %>
-<% end %>
-
-<div class="show_products">
-  <%= link_to 'Show all Products', root_path %>
 </div>
