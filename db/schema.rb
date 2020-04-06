@@ -12,22 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20200406122709) do
 
-  create_table "auctions", force: :cascade do |t|
-    t.integer "prevbid"
-    t.integer "bid"
-    t.integer "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_auctions_on_product_id"
-  end
-
-  create_table "bids", force: :cascade do |t|
-    t.integer "amount"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_bids_on_user_id"
-  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
